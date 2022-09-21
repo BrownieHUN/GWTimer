@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+  <script src="javascript.js"></script>
+  <link rel="stylesheet" href="timer.css">
+	
+  <style>
+    * {
+      background: #000;
+      font-family: Helvetica;
+      color: #dadada;
+    }
+  
+    .base {
+      height: 396px;
+      width: 396px;
+      background: black;
+    }
+
+    .circle {
+      width: 396px;
+      height: 396px;
+      background: #1fac9b;
+      border-radius: 50%;
+    }
+
+    .circlefill {
+      transform: translate(10px, 10px);      
+      width: 376px;
+      height: 376px;
+      border-radius: inherit;
+    }
+
+    table {
+      width: 265px;
+      transform: translate(55px, 55px);
+      text-align: center;
+      border-collapse: collapse;
+      background: black;
+      position: relative;
+    }
+
+    th, td {
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .time {
+      font-size: 24pt;
+    }
+
+    .sdiv {
+      height: 1px;
+      border-width: 0;
+      width: 45%;
+      background: #dadada;
+    }
+
+    .bdiv {
+      height: 3px;
+      border-width: 0;
+      width: 95%;
+      background: #dadada;
+    }
+
+  </style>
+  <!--  <body onload="readfileautomatically();"> -->
+  <body>
+    <div class="base">
+      <div class="circle">  
+        <div class="circlefill">
+          <table>
+            <tr class="time" style="height:51px">
+              <td class="1k" style="width:45%"><b>7</b><sup>45</sup></td>
+              <td style="width:10%">―</td>
+              <td class="1v" style="width:45%"><b>8</b><sup>30</sup></td>
+            </tr>
+            <tr style="height:20px">
+              <td colspan="3"><hr class="sdiv"></td>
+            </tr>
+            <tr style="height:51px">
+              <td class="1h">201</td>
+              <td>|</td>
+              <td class="1e">Angol</td>
+            </tr>
+            <tr style="height:21px">
+              <td colspan="3"><hr class="bdiv"></td>
+            <tr class="time" style="height:51px">
+              <td style="width:45%"><b>8<sup>40</sup></b></td>
+              <td style="width:10%">―</td>
+              <td style="width:45%"><b>9<sup>25</sup></b></td>
+            </tr>
+            <tr style="height:20px">
+              <td colspan="3"><hr class="sdiv"></td>
+            </tr>
+            <tr style="height:51px">
+              <td>117</td>
+              <td>|</td>
+              <td>Német</td>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="jscript">
+      <p class="vmi">asd</p>
+    </div>
+    <button type="button" onclick='readfileautomatically();'>cica</button>
+  </body>
+</html>
+
+<!--
+🠖 B.fűzfő
+-->
