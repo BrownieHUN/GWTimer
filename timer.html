@@ -8,7 +8,7 @@
       background: #aaa;
       font-family: Helvetica;
       color: #dadada;
-      font-size: 64pt;
+      /*font-size: 48pt;*/
     }
   
     .base {
@@ -21,52 +21,83 @@
       margin: auto;
       position: relative;
       left: -2px;
-      top: -2px;
-      width: 1575px;
-      height: 1575px;
+      top: -3px;
+      width: 1570px;
+      height: 1570px;
       background: #1fac9b;
       border-radius: 50%;
     }
 
     .circlefill {
       transform: translate(50px, 50px);      
-      width: 1475px;
-      height: 1475px;
+      width: 1470px;
+      height: 1470px;
       border-radius: inherit;
     }
-
+    
     table {
-      width: 1026px;
-      height: 1026px;
-      transform: translate(212px, 212px);
       text-align: center;
       border-collapse: collapse;
+      border: none;
       background: black;
       position: relative;
     }
 
+    .ttop {
+      width: 1039px;
+      transform: translate(215px, 215px);
+      border-bottom: 5px solid #dadada;
+    }
+
+    .tbottom {
+      width: 1039px;
+      transform: translate(215px, 215px);
+      border-top: 5px solid #dadada;
+      
+    }
+
     th, td {
-      border: none;
       padding: 0;
-      margin: 0;
     }
     
     .time {
-      font-size: 72pt;
+      font-size: 84pt;
+    }
+
+    .stime {
+      font-size: 48pt;
+    }
+
+    .info {
+      font-size: 64pt;
+    }
+
+    .sinfo {
+      font-size: 36pt;
     }
 
     .sdiv {
-      height: 1px;
+      height: 5px;
+      margin: 0;
+      position: absolute;
+      left: 25%;
       border-width: 0;
-      width: 45%;
+      width: 50%;
       background: #dadada;
     }
 
     .bdiv {
-      height: 3px;
+      height: 9px;
       border-width: 0;
-      width: 95%;
+      width: 75%;
       background: #dadada;
+    }
+
+    .vdiv {
+      background: #dadada;
+      margin: auto;
+      width: 4px;
+      height: 252px;
     }
 
   </style>
@@ -75,34 +106,34 @@
     <div class="base">
       <div class="circle">  
         <div class="circlefill">
-          <table>
-            <tr class="time" style="height:51px">
-              <td id="1k" style="width:45%"><b>7</b><sup>45</sup></td>
+          <table class="ttop">
+            <tr class="time" style="height:255px">
+              <td id="1k" style="width:45%">7<b><sup>45</sup></b></td>
               <td style="width:10%">―</td>
-              <td id="1v" style="width:45%"><b>8</b><sup>30</sup></td>
+              <td id="1v" style="width:45%">8<b><sup>30</sup></b></td>
             </tr>
-            <tr style="height:20px">
-              <td colspan="3"><hr class="sdiv"></td>
+            <tr style="height:5px">
+              <td colspan=3><hr class="sdiv"></td>
             </tr>
-            <tr style="height:51px">
-              <td id="1h">201</td>
-              <td>|</td>
-              <td id="1e">Magyar</td>
+            <tr class="info" style="height:255px">
+              <td id="1h" style="width:45%">201</td>
+              <td style="width:10%"><div class="vdiv"></td>
+              <td id="1e" style="width:45%">Magyar</td>
             </tr>
-            <tr style="height:21px">
-              <td colspan="3"><hr class="bdiv"></td>
-            <tr class="time" style="height:51px">
-              <td id="2k" style="width:45%"><b>8<sup>40</sup></b></td>
-              <td style="width:10%">―</td>
-              <td id="2v" style="width:45%"><b>9<sup>25</sup></b></td>
+          </table>
+          <table class="tbottom">
+            <tr class="stime" style="height:255px">
+              <td id="2k" colspan=3 style="width:45%">8<b><sup>40</sup></b> ― 9<b><sup>25</sup></b>
+              <td style="width:10%"><div class="vdiv"></td>
+              <td id="3k" colspan=3 style="width:45%">9<b><sup>45</sup></b> ― 10<b><sup>30</sup></b>
+            <tr>
+              <td colspan=7><hr class="sdiv"></td>
             </tr>
-            <tr style="height:20px">
-              <td colspan="3"><hr class="sdiv"></td>
+            <tr class="sinfo" style="height:255px">
+              <td id="2h" colspan=3 style="width:45%">117 Német</td>
+              <td style="width:10%"><div class="vdiv"></td>
+              <td id="3h" colspan=3 style="width:45%">115 Angol</td>
             </tr>
-            <tr style="height:51px">
-              <td id="2h">117</td>
-              <td>|</td>
-              <td id="2e">Német</td>
           </table>
         </div>
       </div>
