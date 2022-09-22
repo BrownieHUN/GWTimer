@@ -1,15 +1,21 @@
-function readfileautomatically () {
+function readFileAutomatically () {
         var client = new XMLHttpRequest();
-        client.open('GET', '/data.txt');
+        client.open('GET', 'https://raw.githubusercontent.com/BrownieHUN/GWTimer/main/data.txt');
         client.onreadystatechange = function() {
             if( client.responseText != '' ) {
                 var txt = client.responseText.split("\n");
                 
-                document.getElementByClassName("1k").innerHTML = '<b>' + txt[0] + '<sup>' + txt[1] + '</sup></b>';
-                document.getElementByClassName("1v").innerHTML = '<b>' + txt[2] + '<sup>' + txt[3] + '</sup></b>';
-                document.getElementByClassName("1h").innerHTML = txt[4];
-                document.getElementByClassName("1e").innerHTML = txt[5];
+                document.getElementById("k1").innerHTML = txt[0] + '<b><sup>' + txt[1] + '</sup></b>';
+                document.getElementById("v1").innerHTML = txt[2] + '<b><sup>' + txt[3] + '</sup></b>';
+                document.getElementById("h1").innerHTML = txt[5];
+                document.getElementById("e1").innerHTML = txt[6];
             }
         }
         client.send();
     }
+
+var r = document.querySelector(':root');
+
+function setRotationSpeed() {
+  r.style.setProperty('--rtime', txt[4]'s');
+}

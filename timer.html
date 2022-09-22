@@ -2,119 +2,13 @@
 <html>
 
   <script src="javascript.js"></script>
-	
-  <style>
-    * {
-      background: #000;
-      font-family: Helvetica;
-      color: #dadada;
-      /*font-size: 48pt;*/
-    }
-  
-    .base {
-      height: 396px;
-      width: 396px;
-      background: black;
-    }
-    
-    .circle {
-      margin: auto;
-      position: relative;
-      left: -2px;
-      top: -2px;
-      width: 1570px;
-      height: 1570px;
-      background: #1fac9b;
-      border-radius: 50%;
-    }
-
-    .circlefill {
-      transform: translate(50px, 50px);      
-      width: 1470px;
-      height: 1470px;
-      border-radius: inherit;
-    }
-    
-    table {
-      text-align: center;
-      border-collapse: collapse;
-      border: none;
-      background: black;
-      position: relative;
-    }
-
-    .ttop {
-      width: 1039px;
-      transform: translate(215px, 215px);
-      border-bottom: 5px solid #dadada;
-    }
-
-    .tbottom {
-
-      width: 1039px;
-      transform: translate(215px, 215px);
-      border-top: 5px solid #dadada;
-      
-    }
-
-    th, td {
-      padding: 0;
-    }
-    
-    .time {
-      font-size: 84pt;
-    }
-
-    .stime {
-      font-size: 52pt;
-    }
-
-    #k2 {
-      font-size: 60pt;
-    }
-
-    .info {
-      font-size: 64pt;
-    }
-
-    .sinfo {
-      font-size: 40pt;
-    }
-
-    #h2 {
-      font-size: 48pt;
-    }
-
-    .sdiv {
-      height: 5px;
-      margin: 0;
-      position: absolute;
-      left: 25%;
-      border-width: 0;
-      width: 50%;
-      background: #dadada;
-    }
-
-    .bdiv {
-      height: 9px;
-      border-width: 0;
-      width: 75%;
-      background: #dadada;
-    }
-
-    .vdiv {
-      background: #dadada;
-      margin: auto;
-      width: 4px;
-      height: 252px;
-    }
-
-  </style>
+  <title>GW4 Timer</title>
+  <link rel="stylesheet" href="timer.css">
   <!--  <body onload="readfileautomatically();"> -->
   <body>
     <div class="base">
-      <div class="circle">  
-        <div class="circlefill">
+      <svg x="0px" y="0px" width="1650px" height="1650px"> 
+        <circle cx="865" cy="785" r="760" stroke="#1fac9b" stroke-width="50" stroke-linecap="round"></circle>
           <table class="ttop">
             <tr class="time" style="height:255px">
               <td id="k1" style="width:45%">7<b><sup>45</sup></b></td>
@@ -144,10 +38,10 @@
               <td id="h3" colspan=3 style="width:45%">115 Angol</td>
             </tr>
           </table>
-        </div>
-      </div>
+      </svg>
     </div>
-    <button type="button" onclick='readfileautomatically();'>cica</button>
+    <button type="button" onclick='readFileAutomatically();'>cica</button>
+    <button type="button" onclick='setRotationSpeed();'>rotate</button>
   </body>
 </html>
 
