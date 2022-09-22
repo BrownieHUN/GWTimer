@@ -7,7 +7,7 @@ function readFileAutomatically () {
                 
                 document.getElementById("k1").innerHTML = txt[0] + '<b><sup>' + txt[1] + '</sup></b>';
                 document.getElementById("v1").innerHTML = txt[2] + '<b><sup>' + txt[3] + '</sup></b>';
-                document.getElementById("h1").innerHTML = txt[5];
+                document.getElementById("h1").innerHTML = txt[4];
                 document.getElementById("e1").innerHTML = txt[6];
             }
         }
@@ -17,5 +17,5 @@ function readFileAutomatically () {
 var r = document.querySelector(':root');
 
 function setRotationSpeed() {
-  r.style.setProperty('--rtime', txt[4]'s');
+  r.style.setProperty('--rtime', '15s');
 }
