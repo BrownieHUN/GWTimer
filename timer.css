@@ -1,12 +1,12 @@
     :root {
-      --rtime: 0s;
+      --rtime: 1000s;
+	  --rdeg: 0;
     }
 
     * {
       background: #000;
       font-family: Helvetica;
       color: #dadada;
-      /*font-size: 48pt;*/
     }
   
     .base {
@@ -20,12 +20,12 @@
 	}
 
     svg, circle {
-		animation: rotate var(--rtime) linear;
+		animation: rotate var(--rtime) infinite linear;
 	}
 	
 	@keyframes rotate {
 		0% {
-			stroke-dasharray: 0 4775;
+			stroke-dasharray: var(--rdeg) 4775;
 		}
 		
 		100% {

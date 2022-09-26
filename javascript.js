@@ -1,3 +1,6 @@
+var txt;
+var r = document.querySelector(':root');
+
 function readFileAutomatically () {
         var client = new XMLHttpRequest();
         client.open('GET', 'https://raw.githubusercontent.com/BrownieHUN/GWTimer/main/data.txt');
@@ -13,9 +16,15 @@ function readFileAutomatically () {
         }
         client.send();
     }
+function delay(n){
+    return new Promise(function(resolve){
+        setTimeout(resolve,n*1000);
+    });
+}
 
-var r = document.querySelector(':root');
-
-function setRotationSpeed() {
-  r.style.setProperty('--rtime', '15s');
+async function setRotationSpeed() {
+    r.style.setProperty('--rtime', '100s');
+    console.log("asd");
+/*    await delay(duration.substring(0, duration.length - 1));
+    r.style.setProperty('--rtime', '3s');*/
 }
