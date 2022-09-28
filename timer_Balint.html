@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  
+  <style>
+    :root {
+      --rtime: 0s;
+    }
+
+    * {
+      background: #000;
+      font-family: Helvetica;
+      color: #dadada;
+      /*font-size: 48pt;*/
+    }
+  
+    .base {
+      height: 396px;
+      width: 396px;
+      background: black;
+    }
+    
+    svg {
+		transform: rotateX(180deg) rotateY(-180deg) rotateZ(90deg);
+	}
+
+    svg, circle {
+		animation: rotate var(--rtime) linear;
+	}
+	
+	/*@keyframes rotate {
+		0% {
+			stroke-dasharray: 0 4775;
+		}
+		
+		100% {
+			stroke-dasharray: 4775 0;
+		}
+	}*/
+    
+    table {
+      text-align: center;
+      border-collapse: collapse;
+      border: none;
+      background: black;
+      position: relative;
+    }
+
+    .ttop {
+      width: 1010px;
+	  height: 490px;
+      transform: translate(240px, -1385px);
+      border-bottom: 5px solid #dadada;
+    }
+
+    .tbottom {
+      width: 1010px;
+	  height: 490px;
+      transform: translate(240px, -1385px);
+      border-top: 5px solid #dadada;
+      
+    }
+
+    th, td {
+      padding: 0;
+    }
+    
+    .time {
+      font-size: 90pt;
+    }
+
+    .stime {
+      font-size: 48pt;
+    }
+
+    #k2 {
+      font-size: 54pt;
+    }
+
+    .info {
+      font-size: 56pt;
+    }
+
+    .sinfo {
+      font-size: 40pt;
+    }
+
+    #h2 {
+      font-size: 48pt;
+    }
+
+    .sdiv {
+      height: 5px;
+      margin: 0;
+      position: absolute;
+      left: 25%;
+      border-width: 0;
+      width: 50%;
+      background: #dadada;
+    }
+
+    .bdiv {
+      height: 9px;
+      border-width: 0;
+      width: 75%;
+      background: #dadada;
+    }
+
+    .vdiv {
+      background: #dadada;
+      margin: auto;
+      width: 4px;
+      height: 252px;
+    }
+  </style>
+
+  <!--<script src="javascript.js"></script>-->
+
+  <script>
+  function readFileAutomatically () {
+        var client = new XMLHttpRequest();
+        client.open('GET', 'https://raw.githubusercontent.com/BrownieHUN/GWTimer/main/data.txt');
+        client.onreadystatechange = function() {
+            if( client.responseText != '' ) {
+                var txt = client.responseText.split("\n");
+                
+                document.getElementById("k1").innerHTML = txt[0] + '<b><sup>' + txt[1] + '</sup></b>';
+                document.getElementById("v1").innerHTML = txt[2] + '<b><sup>' + txt[3] + '</sup></b>';
+                document.getElementById("h1").innerHTML = txt[4];
+                document.getElementById("e1").innerHTML = txt[6];
+            }
+        }
+        client.send();
+    }
+
+  var r = document.querySelector(':root');
+
+  function setRotationSpeed() {
+  r.style.setProperty('--rtime', '1s');
+  }
+  </script>
+
+  <title>GW4 Timer</title>
+  <!--  <body onload="readfileautomatically();"> -->
+  <body onload="setRotationSpeed();">
+    <div class="base">
+      <svg x="0px" y="0px" width="1650px" height="1650px"> 
+        <circle cx="905" cy="745" r="720" stroke="#1fac9b" stroke-width="50" stroke-linecap="round"></circle>
+          <table class="ttop">
+            <tr class="time" style="height:48%">
+              <td id="k1" style="width:45%">7<b><sup>45</sup></b></td>
+              <td style="width:4%">―</td>
+              <td id="v1" style="width:4%%">8<b><sup>30</sup></b></td>
+            </tr>
+            <tr style="height:5%">
+              <td colspan=3><hr class="sdiv"></td>
+            </tr>
+            <tr class="info" style="height:45%">
+              <td id="h1" style="width:45%">201</td>
+              <td style="width:10%"><div class="vdiv"></td>
+              <td id="e1" style="width:45%">Magyar</td>
+            </tr>
+          </table>
+          <table class="tbottom">
+            <tr class="stime" style="height:48%">
+              <td id="k2" colspan=3 style="width:45%">8<b><sup>40</sup></b> ― 9<b><sup>25</sup></b>
+              <td style="width:10%"><div class="vdiv"></td>
+              <td id="k3" colspan=3 style="width:45%">9<b><sup>35</sup></b> ― 10<b><sup>20</sup></b>
+            <tr>
+              <td colspan=7><hr class="sdiv"></td>
+            </tr>
+            <tr class="sinfo" style="height:48%">
+              <td id="h2" colspan=3 style="width:45%">117 Német</td>
+              <td style="width:10%"><div class="vdiv"></td>
+              <td id="h3" colspan=3 style="width:45%">115 Angol</td>
+            </tr>
+          </table>
+      </svg>
+    </div>
+    <button type="button" onclick='readFileAutomatically();'>cica</button>
+    <button type="button" onclick='setRotationSpeed();'>rotate</button>
+  </body>
+</html>
+
+<!--
+🠖 B.fűzfő
+-->
