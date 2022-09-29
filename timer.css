@@ -20,7 +20,8 @@
 	}
 
     svg, circle {
-		animation: rotate var(--rtime) infinite linear;
+		/*animation: rotate var(--rtime) linear;*/
+		animation: none;
 	}
 	
 	@keyframes rotate {
