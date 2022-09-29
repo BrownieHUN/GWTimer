@@ -145,6 +145,7 @@
 	}
 
 	async function play() {
+		await delay(2);
 		for(i = 0; i < txt.length / 7; i++) {
 			document.getElementById("k1").innerHTML = starth[i] + "<b><sup>" + startm[i] + "</sup></b>";
 			document.getElementById("v1").innerHTML = endh[i] + "<b><sup>" + endm[i] + "</sup></b>";
@@ -181,8 +182,7 @@
   <link rel="stylesheet" href="timer.css">
   <!--  <body onload="readfileautomatically();"> -->
   <body onload="readFile();">
-    <div class="base" onload="play();">
-	  <button type="button" onclick='play();'>cica</button>
+    <div class="base">
       <svg x="0px" y="0px" width="1650px" height="1650px"> 
         <circle cx="865" cy="785" r="760" stroke="#1fac9b" stroke-width="50" stroke-linecap="round"></circle>
           <table class="ttop">
@@ -215,6 +215,7 @@
             </tr>
           </table>
       </svg>
+	  	  <button type="button" style="position: absolute; width: 300px; height: 260px; transform: translate(600px, -1000px);" onclick='play();'>cica</button>
     </div>
   </body>
 </html>
