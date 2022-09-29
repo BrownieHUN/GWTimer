@@ -7,7 +7,7 @@
     }
 
     * {
-      background: #fff;
+      background: #000;
       font-family: Helvetica;
       color: #dadada;
       /*font-size: 48pt;*/
@@ -41,28 +41,28 @@
       text-align: center;
       border-collapse: collapse;
       border: none;
-      background: black;
       position: relative;
     }
 
     .ttop {
-      width: 1010px;
-	  height: 490px;
-      transform: translate(240px, -1385px);
+      width: 990px;
+	  height: 460px;
+      transform: translate(235px, -1383px);
       border-bottom: 5px solid #dadada;
     }
 
     .tbottom {
-      width: 1010px;
-	  height: 490px;
-      transform: translate(240px, -1385px);
+      width: 990px;
+	  height: 460px;
+      transform: translate(235px, -1383px);
       border-top: 5px solid #dadada;
       
     }
 
-    th, td {
+    th, td, tr {
       padding: 0;
     }
+	
     
     .time {
       font-size: 90pt;
@@ -92,6 +92,7 @@
       height: 5px;
       margin: 0;
       position: absolute;
+	  transform: translateY(-5px);
       left: 25%;
       border-width: 0;
       width: 50%;
@@ -109,7 +110,7 @@
       background: #dadada;
       margin: auto;
       width: 4px;
-      height: 252px;
+      height: 222px;
     }
   </style>
 
@@ -144,40 +145,38 @@
   <body onload="setRotationSpeed();">
     <div class="base">
       <svg x="0px" y="0px" width="1650px" height="1650px"> 
-        <circle cx="905" cy="745" r="705" stroke="#1fac9b" stroke-width="50" stroke-linecap="round"></circle>
+        <circle cx="920" cy="730" r="700" stroke="#1fac9b" stroke-width="50" stroke-linecap="round"></circle>
           <table class="ttop">
-            <tr class="time" style="height:48%">
+            <tr class="time" style="height:225px">
               <td id="k1" style="width:45%">7<b><sup>45</sup></b></td>
-              <td style="width:4%">―</td>
-              <td id="v1" style="width:4%%">8<b><sup>30</sup></b></td>
+              <td style="width:10%">―</td>
+              <td id="v1" style="width:45%">8<b><sup>30</sup></b></td>
             </tr>
-            <tr style="height:5%">
+            <tr style="height:5px">
               <td colspan=3><hr class="sdiv"></td>
             </tr>
-            <tr class="info" style="height:45%">
+            <tr class="info" style="height:225px">
               <td id="h1" style="width:45%">201</td>
-              <td style="width:10%"><div class="vdiv"></td>
+              <td style="width:10px"><div class="vdiv" ></td>
               <td id="e1" style="width:45%">Magyar</td>
             </tr>
           </table>
           <table class="tbottom">
-            <tr class="stime" style="height:48%">
+            <tr class="stime" style="height:225px">
               <td id="k2" colspan=3 style="width:45%">8<b><sup>40</sup></b> ― 9<b><sup>25</sup></b>
-              <td style="width:10%"><div class="vdiv"></td>
+              <td style="width:10%"><div class="vdiv" style="transform:translateY(-5px)"></td>
               <td id="k3" colspan=3 style="width:45%">9<b><sup>35</sup></b> ― 10<b><sup>20</sup></b>
-            <tr>
+            <tr style="height:5px">
               <td colspan=7><hr class="sdiv"></td>
             </tr>
-            <tr class="sinfo" style="height:48%">
+            <tr class="sinfo" style="height:225px">
               <td id="h2" colspan=3 style="width:45%">117 Német</td>
-              <td style="width:10%"><div class="vdiv"></td>
+              <td style="width:10%"><div class="vdiv" style="transform:translateY(-5px)"></td>
               <td id="h3" colspan=3 style="width:45%">115 Angol</td>
             </tr>
           </table>
       </svg>
     </div>
-    <button type="button" onclick='readFileAutomatically();'>cica</button>
-    <button type="button" onclick='setRotationSpeed();'>rotate</button>
   </body>
 </html>
 
