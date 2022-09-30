@@ -1,6 +1,10 @@
     :root {
-      --rtime: 1000s;
+      --ratime: 0s;
+	  --ritime: 0s;
 	  --rdeg: 0;
+	  --activecolor: #1fac9b;
+	  --inactivecolor: #ff9f0a;
+	  --circlecolor: var(--activecolor);
     }
 
     * {
@@ -24,7 +28,17 @@
 		animation: none;
 	}
 	
-	@keyframes rotate {
+	@keyframes ractive {
+		0% {
+			stroke-dasharray: var(--rdeg) 4775;
+		}
+		
+		100% {
+			stroke-dasharray: 4775 0;
+		}
+	}
+	
+	@keyframes rinactive {
 		0% {
 			stroke-dasharray: var(--rdeg) 4775;
 		}
