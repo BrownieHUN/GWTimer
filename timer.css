@@ -1,22 +1,24 @@
     :root {
       --ratime: 0s;
 	  --ritime: 0s;
-	  --rdeg: 0;
+	  --startdeg: 0;
+	  --secdeg: 0deg;
 	  --activecolor: #1fac9b;
 	  --inactivecolor: #ff9f0a;
 	  --circlecolor: var(--activecolor);
     }
 
     * {
-      background: #000;
+      /*background: #000;*/
       font-family: Helvetica;
       color: #dadada;
     }
   
     .base {
-      height: 396px;
-      width: 396px;
-      background: black;
+      height: 2500px;
+      width: 1600px;
+	  background: #000;
+	  transform: translate(-6px, -6px);
     }
     
     svg {
@@ -24,13 +26,12 @@
 	}
 
     svg, circle {
-		/*animation: rotate var(--rtime) linear;*/
 		animation: none;
 	}
 	
 	@keyframes ractive {
 		0% {
-			stroke-dasharray: var(--rdeg) 4775;
+			stroke-dasharray: var(--startdeg) 4775;
 		}
 		
 		100% {
@@ -40,7 +41,7 @@
 	
 	@keyframes rinactive {
 		0% {
-			stroke-dasharray: var(--rdeg) 4775;
+			stroke-dasharray: var(--startdeg) 4775;
 		}
 		
 		100% {
@@ -52,19 +53,18 @@
       text-align: center;
       border-collapse: collapse;
       border: none;
-      background: black;
       position: relative;
     }
 
     .ttop {
       width: 1039px;
-      transform: translate(265px, -1385px);
+      transform: translate(265px, -1315px);
       border-bottom: 5px solid #dadada;
     }
 
     .tbottom {
       width: 1039px;
-      transform: translate(265px, -1385px);
+      transform: translate(265px, -1315px);
       border-top: 5px solid #dadada;
       
     }
@@ -77,24 +77,24 @@
       font-size: 96pt;
     }
 
-    .stime {
-      font-size: 52pt;
-    }
-
     #k2 {
       font-size: 60pt;
+    }
+
+    #k3 {
+      font-size: 52pt;
     }
 
     .info {
       font-size: 64pt;
     }
-
-    .sinfo {
-      font-size: 40pt;
+	
+	#h2 {
+      font-size: 48pt;
     }
 
-    #h2 {
-      font-size: 48pt;
+    #h3 {
+      font-size: 40pt;
     }
 
     .sdiv {
@@ -120,3 +120,9 @@
       width: 4px;
       height: 252px;
     }
+	
+	#sec {
+	  transform-origin: center;
+	  transform: rotate(0deg);
+	  visibility: hidden;
+	}

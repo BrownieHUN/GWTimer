@@ -7,39 +7,41 @@
   <!--  <body onload="readfileautomatically();"> -->
   <body onload="readFile();">
     <div class="base">
-	  <button type="button" onclick='play();'>cica</button>
-      <svg x="0px" y="0px" width="1650px" height="1650px"> 
-        <circle cx="865" cy="785" r="760" stroke="var(--circlecolor)" stroke-width="50" stroke-linecap="round"></circle>
-          <table class="ttop">
-            <tr class="time" style="height:255px">
-              <td id="k1" style="width:45%">0<b><sup>00</sup></b></td>
-              <td style="width:10%">―</td>
-              <td id="v1" style="width:45%">0<b><sup>00</sup></b></td>
-            </tr>
-            <tr style="height:5px">
-              <td colspan=3><hr class="sdiv"></td>
-            </tr>
-            <tr class="info" style="height:255px">
-              <td id="h1" style="width:45%">TEXT</td>
-              <td style="width:10%"><div class="vdiv"></td>
-              <td id="e1" style="width:45%">TEXT</td>
-            </tr>
-          </table>
-          <table class="tbottom">
-            <tr class="stime" style="height:255px">
-              <td id="k2" colspan=3 style="width:45%">0<b><sup>00</sup></b> ― 0<b><sup>00</sup></b>
-              <td style="width:10%"><div class="vdiv"></td>
-              <td id="k3" colspan=3 style="width:45%">0<b><sup>00</sup></b> ― 0<b><sup>00</sup></b>
-            <tr>
-              <td colspan=7><hr class="sdiv"></td>
-            </tr>
-            <tr class="sinfo" style="height:255px">
-              <td id="h2" colspan=3 style="width:45%">TEXT</td>
-              <td style="width:10%"><div class="vdiv"></td>
-              <td id="h3" colspan=3 style="width:45%">TEXT</td>
-            </tr>
-          </table>
-      </svg>
+      <svg x="0px" y="0px" width="1570px" height="1570px"> 
+		<circle id="sec" cx="1450" cy="785" r="25" stroke-width="50" fill="var(--inactivecolor)"></circle>
+        <circle id="mainc" cx="785" cy="785" r="760" stroke="var(--circlecolor)" stroke-width="50" fill="transparent" stroke-linecap="round"></circle>
+	  </svg>
+	  <table class="ttop">
+		<tr class="time" style="height:255px">
+		  <td id="k1" style="width:45%">0<b><sup>00</sup></b></td>
+		  <td style="width:10%">―</td>
+		  <td id="v1" style="width:45%">0<b><sup>00</sup></b></td>
+		</tr>
+		<tr style="height:5px">
+		  <td colspan=3><hr class="sdiv"></td>
+		</tr>
+		<tr class="info" style="height:255px">
+		  <td id="h1" style="width:45%">TEXT</td>
+		  <td style="width:10%"><div class="vdiv"></td>
+		  <td id="e1" style="width:45%">TEXT</td>
+		</tr>
+	  </table>
+	  <table class="tbottom">
+		<tr class="stime" style="height:255px">
+		  <td id="k2" colspan=3 style="width:45%">0<b><sup>00</sup></b> ― 0<b><sup>00</sup></b>
+		  <td style="width:10%"><div class="vdiv"></td>
+		  <td id="k3" colspan=3 style="width:45%">0<b><sup>00</sup></b> ― 0<b><sup>00</sup></b>
+		<tr>
+		  <td colspan=7><hr class="sdiv"></td>
+		</tr>
+		<tr class="sinfo" style="height:255px">
+		  <td id="h2" colspan=3 style="width:45%">TEXT</td>
+		  <td style="width:10%"><div class="vdiv"></td>
+		  <td id="h3" colspan=3 style="width:45%">TEXT</td>
+		</tr>
+	  </table>
+	  <button type="button" style="position: absolute; width: 300px; height: 260px; transform: translate(600px, -1000px);" onclick='play();'>cica</button>
+	  <button type="button" style="position: absolute; width: 300px; height: 260px; transform: translate(600px, -600px);" onclick='secClock();'>cica</button>
     </div>
   </body>
 </html>
