@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   
+  <!--<link rel="stylesheet" href="timer.css">
+  <script src="javascript.js"></script>-->
+
   <style>
+
     :root {
       --ratime: 0s;
 	  --ritime: 0s;
-	  --rdeg: 0deg;
+	  --startdeg: 0;
 	  --secdeg: 0deg;
 	  --activecolor: #1fac9b;
 	  --inactivecolor: #ff9f0a;
@@ -35,7 +39,7 @@
 	
 	@keyframes ractive {
 		0% {
-			stroke-dasharray: var(--rdeg) 4775;
+			stroke-dasharray: var(--startdeg) 4775;
 		}
 		
 		100% {
@@ -45,7 +49,7 @@
 	
 	@keyframes rinactive {
 		0% {
-			stroke-dasharray: var(--rdeg) 4775;
+			stroke-dasharray: var(--startdeg) 4775;
 		}
 		
 		100% {
@@ -57,19 +61,18 @@
       text-align: center;
       border-collapse: collapse;
       border: none;
-      background: black;
       position: relative;
     }
 
     .ttop {
-      width: 1039px;
-      transform: translate(265px, -1385px);
+      width: 940px;
+      transform: translate(245px, -1405px);
       border-bottom: 5px solid #dadada;
     }
 
     .tbottom {
-      width: 1039px;
-      transform: translate(265px, -1385px);
+      width: 940px;
+      transform: translate(245px, -1405px);
       border-top: 5px solid #dadada;
       
     }
@@ -82,24 +85,24 @@
       font-size: 96pt;
     }
 
-    .stime {
-      font-size: 52pt;
-    }
-
     #k2 {
       font-size: 60pt;
+    }
+
+    #k3 {
+      font-size: 52pt;
     }
 
     .info {
       font-size: 64pt;
     }
-
-    .sinfo {
-      font-size: 40pt;
+	
+	#h2 {
+      font-size: 48pt;
     }
 
-    #h2 {
-      font-size: 48pt;
+    #h3 {
+      font-size: 40pt;
     }
 
     .sdiv {
@@ -123,83 +126,24 @@
       background: #dadada;
       margin: auto;
       width: 4px;
-      height: 252px;
+      height: 230px;
+    }
+	
+	#sec {
+	  transform-origin: center;
+	  transform: rotate(0deg);
+	  visibility: hidden;
+	}
+
+    button {
+      position: absolute;
+      width: 300px;
+      height: 260px;
+      transform: translate(50%, -1000px);
+      font-size: 56pt;
+      background: black;
     }
   </style>
-
-  <script>
-	var txt;
-var r = document.querySelector(':root');
-var starth = [];
-var startm = [];
-var endh = [];
-var endm = [];
-var dur = [];
-var loc = [];
-var other = [];
-var pause = [];
-const d = new Date();
-
-function readFile() {
-    var client = new XMLHttpRequest();
-    client.open('GET', 'https://raw.githubusercontent.com/BrownieHUN/GWTimer/main/data.txt');
-    client.onreadystatechange = function() {
-        if( client.responseText != '' ) {
-            txt = client.responseText.split("\n");
-            for(i = 0; i < txt.length / 7; i++) {
-                starth[i] = parseInt(txt[i * 7]);
-                startm[i] = parseInt(txt[i * 7 + 1]);
-                endh[i] = parseInt(txt[i * 7 + 2]);
-                endm[i] = parseInt(txt[i * 7 + 3]);
-                dur[i] = (starth[i] != endh[i]) ? 60 - startm[i] + (endh[i] - starth[i] - 1) * 60 + endm[i] : endm[i] - startm[i];
-                loc[i] = txt[i * 7 + 5];
-                other[i] = txt[i * 7 + 6];
-                if(i < txt.length / 7 - 1) {
-                    pause[i+1] = Math.abs((starth[i+1] != endh[i]) ? 60 - startm[i+1] + (endh[i] - starth[i+1] - 1) * 60 + endm[i] : endm[i] - startm[i+1]);
-                }
-            }
-        }
-    }
-    client.send();
-}
-
-async function play() {
-	for(i = 0; i < txt.length / 7; i++) {
-        r.style.setProperty('--circlecolor', 'var(--activecolor)');
-        document.getElementById("k1").innerHTML = starth[i] + "<b><sup>" + startm[i] + "</sup></b>";
-        document.getElementById("v1").innerHTML = endh[i] + "<b><sup>" + endm[i] + "</sup></b>";
-        document.getElementById("h1").innerHTML = loc[i];
-        document.getElementById("e1").innerHTML = other[i];
-        r.style.setProperty('--ratime', dur[i]);
-        r.style.setProperty('--ritime', pause[i]);
-        document.getElementById("k2").innerHTML = (starth[i+1] != undefined) ? starth[i+1] + "<b><sup>" + startm[i+1] + "</sup></b> ― " + endh[i+1] + "<b><sup>" + endm[i+1] + "</sup></b>" : "";
-        document.getElementById("h2").innerHTML = (loc[i+1]) ? loc[i+1] + " " + other[i+1] : "";
-        document.getElementById("k3").innerHTML = (starth[i+2] != undefined) ? starth[i+2] + "<b><sup>" + startm[i+2] + "</sup></b> ― " + endh[i+2] + "<b><sup>" + endm[i+2] + "</sup></b>" : "";
-        document.getElementById("h3").innerHTML = (loc[i+2]) ? loc[i+2] + " " + other[i+2] : "";
-        //r.style.animation = "ractive " + dur[i] + "s 1 linear";
-        r.style.animation = "ractive 4s 1 linear";
-        //await delay(dur[i]);
-        await delay(4);
-        r.style.setProperty('--circlecolor', 'var(--inactivecolor)');
-        //r.style.animation = "rinactive " + pause[i] + "s 1 linear";
-        r.style.animation = "rinactive 2s 1 linear";
-        document.getElementById("k1").innerHTML = endh[i] + "<b><sup>" + endm[i] + "</sup></b>";
-        document.getElementById("v1").innerHTML = (starth[i+1] != undefined) ? starth[i+1] + "<b><sup>" + startm[i+1] + "</sup></b>" : "";
-        document.getElementById("h1").innerHTML = (loc[i+1] != undefined) ? "🠖 " + loc[i+1] : "";
-        document.getElementById("e1").innerHTML = "";
-        //await delay(pause[i]);
-        await delay(2);
-    }
-    //r.style.animation = "none";
-}
-
-function delay(n) {
-    return new Promise(function(resolve){
-        setTimeout(resolve,n*1000);
-    });
-}
-
-  </script>
 
   <title>GW4 Timer</title>
   <!--  <body onload="readfileautomatically();"> -->
@@ -207,8 +151,8 @@ function delay(n) {
     <div class="base">
       <svg x="0px" y="0px" width="1650px" height="1650px"> 
         <circle cx="935" cy="715" r="690" stroke="#1fac9b" stroke-width="50" stroke-linecap="round"></circle>
-          <!--<table class="ttop">
-            <tr class="time" style="height:225px">
+          <table class="ttop">
+            <tr class="time" style="height:230px">
               <td id="k1" style="width:45%">7<b><sup>45</sup></b></td>
               <td style="width:10%">―</td>
               <td id="v1" style="width:45%">8<b><sup>30</sup></b></td>
@@ -216,31 +160,28 @@ function delay(n) {
             <tr style="height:5px">
               <td colspan=3><hr class="sdiv"></td>
             </tr>
-            <tr class="info" style="height:225px">
+            <tr class="info" style="height:230px">
               <td id="h1" style="width:45%">201</td>
               <td style="width:10px"><div class="vdiv" ></td>
               <td id="e1" style="width:45%">Magyar</td>
             </tr>
           </table>
           <table class="tbottom">
-            <tr class="stime" style="height:225px">
+            <tr class="stime" style="height:230px">
               <td id="k2" colspan=3 style="width:45%">8<b><sup>40</sup></b> ― 9<b><sup>25</sup></b>
               <td style="width:10%"><div class="vdiv" style="transform:translateY(-5px)"></td>
               <td id="k3" colspan=3 style="width:45%">9<b><sup>35</sup></b> ― 10<b><sup>20</sup></b>
+            </tr>
             <tr style="height:5px">
               <td colspan=7><hr class="sdiv"></td>
             </tr>
-            <tr class="sinfo" style="height:225px">
+            <tr class="sinfo" style="height:230px">
               <td id="h2" colspan=3 style="width:45%">117 Német</td>
               <td style="width:10%"><div class="vdiv" style="transform:translateY(-5px)"></td>
               <td id="h3" colspan=3 style="width:45%">115 Angol</td>
             </tr>
-          </table>-->
+          </table>
       </svg>
     </div>
   </body>
 </html>
-
-<!--
-🠖 B.fűzfő
--->
