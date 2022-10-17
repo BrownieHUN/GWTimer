@@ -2,6 +2,7 @@
       --ratime: 0s;
 	  --ritime: 0s;
 	  --startdeg: 0;
+	  --enddeg: 4335;
 	  --secdeg: 0deg;
 	  --activecolor: #1fac9b;
 	  --inactivecolor: #ff9f0a;
@@ -16,7 +17,7 @@
   
     .base {
       height: 2500px;
-      width: 1600px;
+      width: 3300px;
 	  background: #000;
 	  transform: translate(-6px, -6px);
     }
@@ -31,24 +32,32 @@
 	
 	@keyframes ractive {
 		0% {
-			stroke-dasharray: var(--startdeg) 4775;
+			stroke-dasharray: var(--startdeg) var(--enddeg);
 		}
 		
 		100% {
-			stroke-dasharray: 4775 0;
+			stroke-dasharray: var(--enddeg) 0;
 		}
 	}
 	
 	@keyframes rinactive {
 		0% {
-			stroke-dasharray: var(--startdeg) 4775;
+			stroke-dasharray: var(--startdeg) var(--enddeg);
 		}
 		
 		100% {
-			stroke-dasharray: 4775 0;
+			stroke-dasharray: var(--enddeg) 0;
 		}
 	}
     
+    #time {
+      width: 200px;
+      position: absolute;
+      text-align: center;
+      font-size: 46pt;
+      transform: translate(615px, -1320px);
+    }
+
     table {
       text-align: center;
       border-collapse: collapse;
@@ -56,15 +65,15 @@
       position: relative;
     }
 
-    .ttop {
-      width: 1039px;
-      transform: translate(265px, -1315px);
+    #ttop {
+      width: 940px;
+      transform: translate(245px, -1190px);
       border-bottom: 5px solid #dadada;
     }
 
-    .tbottom {
-      width: 1039px;
-      transform: translate(265px, -1315px);
+    #tbottom {
+      width: 940px;
+      transform: translate(245px, -1190px);
       border-top: 5px solid #dadada;
       
     }
@@ -118,13 +127,14 @@
       background: #dadada;
       margin: auto;
       width: 4px;
-      height: 252px;
+      height: 230px;
     }
 	
 	#sec {
 	  transform-origin: center;
 	  transform: rotate(0deg);
-	  visibility: hidden;
+      position: relative;
+      color: red;
 	}
 
     button {
@@ -135,3 +145,14 @@
       font-size: 56pt;
       background: black;
     }
+
+	#tcontent {
+	  width: 1500px;
+	  transform: translate(1700px, -2100px);
+	  font-size: 72pt;
+	}
+	
+	#tcontent * :not(sup, b) {
+	  border: 1px solid #dadada;
+	  border-collapse: collapse;
+	}

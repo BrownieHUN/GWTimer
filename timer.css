@@ -16,9 +16,9 @@
   
     .base {
       height: 2500px;
-      width: 1600px;
+      width: 3300px;
 	  background: #000;
-	  transform: translate(-6px, -6px);
+	  transform: translate(-7px, -7px);
     }
     
     svg {
@@ -48,7 +48,15 @@
 			stroke-dasharray: 4775 0;
 		}
 	}
-    
+   
+    #time {
+      width: 200px;
+      position: absolute;
+      text-align: center;
+      font-size: 46pt;
+      transform: translate(685px, -1480px);
+    }
+
     table {
       text-align: center;
       border-collapse: collapse;
@@ -56,13 +64,13 @@
       position: relative;
     }
 
-    .ttop {
+    #ttop {
       width: 1039px;
       transform: translate(265px, -1315px);
       border-bottom: 5px solid #dadada;
     }
 
-    .tbottom {
+    #tbottom {
       width: 1039px;
       transform: translate(265px, -1315px);
       border-top: 5px solid #dadada;
@@ -124,7 +132,6 @@
 	#sec {
 	  transform-origin: center;
 	  transform: rotate(0deg);
-	  visibility: hidden;
 	}
 
     button {
@@ -135,3 +142,14 @@
       font-size: 56pt;
       background: black;
     }
+	
+	#tcontent {
+	  width: 1500px;
+	  transform: translate(1700px, -2100px);
+	  font-size: 72pt;
+	}
+	
+	#tcontent * :not(sup, b) {
+	  border: 1px solid #dadada;
+	  border-collapse: collapse;
+	}
