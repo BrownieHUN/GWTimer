@@ -157,7 +157,7 @@
 	}
 	
 	#tcontent * :not(sup, b) {
-	  border: 1px solid #dadada;
+	  border: 2px solid #dadada;
 	  border-collapse: collapse;
 	}
   </style>
@@ -180,7 +180,7 @@ const d = new Date();
 function readFile() {
     var client = new XMLHttpRequest();
 	//client.open('GET', '/static/data' + d.getDay() + '.txt');
-    client.open('GET', 'https://i.gonda.dev/y2krlx0v99v6.txt')
+    client.open('GET', 'https://raw.githubusercontent.com/BrownieHUN/GWTimer/main/Balint/data3.txt')
     client.onreadystatechange = function() {
         if( client.responseText != '' ) {
             txt = client.responseText.split("\n");
@@ -247,10 +247,21 @@ async function start() {
     //mínusz, ha még nem indult el
     if(elapsed < 0) {
         t_remain = starth[0] * 60 * 60 + startm[0] * 60 - d.getHours() * 60 * 60 - d.getMinutes() * 60 - d.getSeconds();
-        cur_pause = true;
+
+        document.getElementById("k1").innerHTML = "";
+        document.getElementById("v1").innerHTML = starth[i] + "<b><sup>" + startm[i] + "</sup></b>";
+        document.getElementById("h1").innerHTML = loc[i];
+        document.getElementById("e1").innerHTML = other[i];
+		
+        r.style.setProperty('--circlecolor', 'var(--inactivecolor)');
+    	r.style.animation = "rinactive " + t_remain + "s 1 linear";
+        await delay(t_remain);
+		
+        cur_pause = false;
+        n = 0;
     }
     else {
-		for(i = 0; i < txt.length / 6; i++) {
+		for(i = 0; i <= txt.length / 6; i++) {
 			//minden óra és az utána következő szünet hossza (már ha van), plusz az előzők
 			tlen[i] = (i > 0) ? (i != txt.length / 6 - 1) ? tlen[i-1] + (dur[i] + pause[i]) * 60 : tlen[i-1] + dur[i] * 60 : (dur[i] + pause[i]) * 60;
 			if(tlen[i] < elapsed) { n++; continue; }
