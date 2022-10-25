@@ -22,7 +22,7 @@
 		</tr>
 		<tr class="info" style="height:255px">
 		  <td id="h1" style="width:45%">TEXT</td>
-		  <td style="width:10%"><div class="vdiv"/></td>
+		  <td id="upDiv" style="width:10%"><div class="vdiv"/></td>
 		  <td id="e1" style="width:45%">TEXT</td>
 		</tr>
 	  </table>
@@ -40,8 +40,11 @@
 		  <td id="h3" colspan=3 style="width:45%">TEXT</td>
 		</tr>
 	  </table>
-	  <button type="button" style="transform: translate(600px, -1000px)" onclick='play();'>cica</button>
-	  <button type="button" style="transform: translate(600px, -600px);" onclick='secClock();clock();'>cica</button>
+	  <button type="button" style="transform: translate(635px, -1000px)" onclick='getDelay();'>cica</button>
+	  <button type="button" style="transform: translate(635px, -600px);" onclick='changeToMav();'>cica</button>
+	  <!--<button type="button" id="plusdelay" onclick="addDelay();">+</button>-->
+	  <input type="number" id="delayinput"/>
+	  <!--<button type="button" id="minusdelay" onclick="subtractDelay();">-</button>-->
     </div>
   </body>
 </html>
